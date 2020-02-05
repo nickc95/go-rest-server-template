@@ -15,16 +15,8 @@ var (
 	}
 )
 
-// GetErrorJSON returns json encoding representation of lr client error
+// GetErrorJSON returns json encoding representation of an error struct
 func GetErrorJSON(errorStruct error) []byte {
 	jsonString, _ := json.Marshal(errorStruct)
-	return jsonString
-}
-
-// GetErrorJSONWithCustomDescription returns json encoding representation of lr client error with custom description set
-func GetErrorJSONWithCustomDescription(errorStruct error, customDescription string) []byte {
-	tempErrorStruct := errorStruct
-	tempErrorStruct.Description = customDescription
-	jsonString, _ := json.Marshal(tempErrorStruct)
 	return jsonString
 }

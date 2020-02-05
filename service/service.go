@@ -9,7 +9,7 @@ import (
 
 var serviceRoutePrefix = "/service/"
 
-// New defines identity service package, including service specific middleware and handlers
+// New defines service package, including service specific middleware and handlers
 func New(router *httprouter.Router, wrapper func(http.HandlerFunc) httprouter.Handle, commonMiddlewareWrapper func(func(*models.ResponseContextWriter, *http.Request, *models.RequestData)) http.HandlerFunc) {
 	router.POST(serviceRoutePrefix, wrapper(commonMiddlewareWrapper(serviceMiddleware(servicePostHandler))))
 	router.GET(serviceRoutePrefix, wrapper(commonMiddlewareWrapper(serviceMiddleware(serviceGetHandler))))
